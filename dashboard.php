@@ -1,8 +1,31 @@
 <?php
 require_once 'helpers/auth.php';
+require_once 'helpers/db.php';
 verificarSesion();
 $nombre = $_SESSION['nombre'];
 $rol    = $_SESSION['rol'];
+
+$ventana_activa = false;
+$ventana_rango = '';
+if ($rol === 'admin') {
+    try {
+        $conn = conectarDB();
+        $res = $conn->query("SELECT clave, valor FROM config_asistencia WHERE clave IN ('ventana_activa', 'ventana_hasta')");
+        $config = [];
+        if ($res) {
+            while ($row = $res->fetch_assoc()) {
+                $config[$row['clave']] = $row['valor'];
+            }
+            if (($config['ventana_activa'] ?? '0') === '1') {
+                if (empty($config['ventana_hasta']) || date('Y-m-d') <= $config['ventana_hasta']) {
+                    $ventana_activa = true;
+                    $ventana_rango = "Hasta " . date('d/m/Y', strtotime($config['ventana_hasta']));
+                }
+            }
+        }
+        $conn->close();
+    } catch (Exception $e) {}
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -121,6 +144,15 @@ $rol    = $_SESSION['rol'];
     .card-asistencia .icon-wrapper { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); color: #d35400; }
     .card-historial .icon-wrapper { background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%); color: #0083b0; }
     .card-contabilidad .icon-wrapper { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); color: #2096ff; }
+    .card-ventana .icon-wrapper { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #e67e22; }
+    .card-ventana.activa { border: 2px solid #fd7e14; box-shadow: 0 0 20px rgba(253, 126, 20, 0.2); }
+    .card-ventana.activa .icon-wrapper { animation: pulse 2s infinite; }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); box-shadow: 0 0 15px rgba(253,126,20,0.4); }
+      100% { transform: scale(1); }
+    }
     
     .access-card:hover .icon-wrapper {
       transform: scale(1.1) rotate(5deg);
@@ -238,6 +270,23 @@ $rol    = $_SESSION['rol'];
               </div>
               <h3 class="card-title">Contabilidad</h3>
               <p class="card-desc">Pagos, ingresos y reportes</p>
+            </div>
+          </a>
+        </div>
+
+        <!-- Card: Ventana Especial -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <a href="views/admin/ventana_asistencia.php" class="access-card card-ventana <?= $ventana_activa ? 'activa' : '' ?>">
+            <div class="card-body">
+              <div class="icon-wrapper">
+                <i class="bi bi-calendar-range-fill"></i>
+              </div>
+              <h3 class="card-title">Plazos Asistencia</h3>
+              <?php if($ventana_activa): ?>
+                <p class="card-desc text-warning fw-bold mb-0">¡Ventana Activa! <?= htmlspecialchars($ventana_rango) ?></p>
+              <?php else: ?>
+                <p class="card-desc">Configurar plazos especiales</p>
+              <?php endif; ?>
             </div>
           </a>
         </div>

@@ -179,24 +179,56 @@
     </div>
   <?php endif; ?>
 
+  <!-- Window Alert Banner -->
+  <?php if(isset($ventana) && $ventana['activa']): ?>
+    <div class="alert alert-warning border-warning shadow-sm rounded-4 mb-4">
+      <div class="d-flex align-items-center mb-2">
+        <i class="bi bi-calendar-check fs-4 me-3"></i>
+        <div>
+          <h5 class="alert-heading fw-bold mb-0">Ventana Especial de Asistencia</h5>
+          <p class="mb-0 small">Se ha concedido un plazo excepcional para registrar asistencias.</p>
+        </div>
+      </div>
+      <hr>
+      <ul class="mb-0 small">
+        <li><strong>Desde:</strong> <?= date('d/m/Y', strtotime($ventana['desde'])) ?></li>
+        <li><strong>Hasta:</strong> <?= date('d/m/Y', strtotime($ventana['hasta'])) ?></li>
+        <?php if($ventana['motivo']): ?>
+          <li><strong>Motivo:</strong> <?= htmlspecialchars($ventana['motivo']) ?></li>
+        <?php endif; ?>
+      </ul>
+      <p class="mt-2 mb-0 small opacity-75"><i>Luego de este plazo, el sistema solo permitirá registrar asistencia de hasta 2 días atrás.</i></p>
+    </div>
+  <?php endif; ?>
+
   <!-- Filters -->
   <div class="filters-card">
     <form action="" method="GET" id="filterForm">
       <div class="row g-3">
-        <!-- Date Selector (Strict Limit) -->
+        <!-- Date Selector -->
         <div class="col-6">
           <label class="form-label small text-muted fw-bold">Fecha</label>
           <?php
-            // Calcular límites de fecha (Hoy y 2 días atrás)
             $hoy = date('Y-m-d');
-            $min_date = date('Y-m-d', strtotime('-2 days'));
-            // Si es admin, no restringimos el min
+            $min_normal = date('Y-m-d', strtotime('-2 days'));
+            $max_date = $hoy;
+            $min_date = $min_normal;
+            $info_text = "Solo se permite tomar asistencia de hoy, ayer o anteayer.";
+
+            // Si hay ventana activa, ampliamos el min_date al inicio de la ventana
+            if (isset($ventana) && $ventana['activa']) {
+                if ($ventana['desde'] < $min_date) {
+                    $min_date = $ventana['desde'];
+                }
+                $info_text = "Puedes seleccionar fechas dentro de la ventana especial habilitada.";
+            }
+
             $attr_min = ($rol_usuario === 'admin') ? '' : "min=\"$min_date\"";
           ?>
           <input type="date" class="form-control rounded-3" name="fecha" value="<?= htmlspecialchars($fecha) ?>" 
-                 max="<?= $hoy ?>" <?= $attr_min ?> onchange="this.form.submit()">
+                 max="<?= $max_date ?>" <?= $attr_min ?> onchange="this.form.submit()">
           <div class="form-text text-muted" style="font-size: 0.75rem;">
-            <i class="bi bi-info-circle me-1"></i>Solo se permite tomar asistencia de hoy, ayer o anteayer.
+            <i class="bi bi-info-circle me-1"></i><?= $info_text ?>
           </div>
         </div>
         

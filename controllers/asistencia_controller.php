@@ -19,6 +19,28 @@ try {
     die("Error al cargar los horarios. Por favor intente más tarde.");
 }
 
+// --- Obtener Configuración de Ventana Especial ---
+$ventana = ['activa' => false, 'desde' => '', 'hasta' => '', 'motivo' => ''];
+try {
+    $conn = conectarDB();
+    $res = $conn->query("SELECT clave, valor FROM config_asistencia");
+    if ($res) {
+        while ($row = $res->fetch_assoc()) {
+            if ($row['clave'] === 'ventana_activa') $ventana['activa'] = ($row['valor'] === '1');
+            if ($row['clave'] === 'ventana_desde')  $ventana['desde'] = $row['valor'];
+            if ($row['clave'] === 'ventana_hasta')  $ventana['hasta'] = $row['valor'];
+            if ($row['clave'] === 'ventana_motivo') $ventana['motivo'] = $row['valor'];
+        }
+    }
+    $conn->close();
+    // Expiración automática
+    if ($ventana['activa'] && $ventana['hasta'] && date('Y-m-d') > $ventana['hasta']) {
+        $ventana['activa'] = false;
+    }
+} catch (Exception $e) {
+    // Si falla (ej. tabla no existe aún), ignorar silenciosamente
+}
+
 // --- Guardar asistencia ---
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validación básica de parámetros requeridos
@@ -34,20 +56,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    // Verificación estricta de fecha (Máximo 2 días atrás)
+    // Verificación estricta de fecha
     $fecha_obj = new DateTime($fecha);
     $hoy_obj = new DateTime();
-    $hoy_obj->setTime(0,0,0); // Normalizar a medianoche
+    $hoy_obj->setTime(0,0,0);
     $fecha_obj->setTime(0,0,0);
     
     $diferencia = $hoy_obj->diff($fecha_obj);
-    $dias_diferencia = (int)$diferencia->format('%r%a'); // %r signo, %a días absolutos
+    $dias_diferencia = (int)$diferencia->format('%r%a');
 
-    // Si es futuro ($dias_diferencia > 0) o más de 2 días atrás ($dias_diferencia < -2)
-    // PERMITIR EXCEPCIÓN: Si es ADMIN, dejamos pasar cualquier fecha.
-    if (!$es_admin && ($dias_diferencia > 0 || $dias_diferencia < -2)) {
-        header("Location: asistencia_controller.php?error=Fecha+no+permitida+(Max+2+dias+atras)");
-        exit;
+    // Validación normal vs Ventana Especial
+    if (!$es_admin) {
+        $es_valida_normal = ($dias_diferencia <= 0 && $dias_diferencia >= -2);
+        
+        $es_valida_ventana = false;
+        if ($ventana['activa'] && $fecha >= $ventana['desde'] && $fecha <= $ventana['hasta']) {
+            $es_valida_ventana = true;
+        }
+
+        if (!$es_valida_normal && !$es_valida_ventana) {
+            header("Location: asistencia_controller.php?error=Fecha+no+permitida.+Solo+hasta+2+dias+atras+o+dentro+de+ventana+especial.");
+            exit;
+        }
     }
 
     $horario_id = intval($_POST['horario_id']);

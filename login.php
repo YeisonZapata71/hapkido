@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php
+session_start();
+$login_success = $_SESSION['login_success'] ?? '';
+if ($login_success) unset($_SESSION['login_success']);
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -51,6 +55,12 @@
                     <p class="text-white text-opacity-50">Ingresa tus credenciales</p>
                 </div>
 
+                <?php if($login_success): ?>
+                    <div class="alert alert-success bg-success bg-opacity-10 text-white border-0 py-2 text-center small mb-4">
+                        ✅ <?= htmlspecialchars($login_success) ?>
+                    </div>
+                <?php endif; ?>
+
                 <?php if(isset($_GET['error'])): ?>
                     <div class="alert alert-danger bg-danger bg-opacity-10 text-white border-0 py-2 text-center small mb-4">
                         <?= htmlspecialchars($_GET['error']) ?>
@@ -70,6 +80,12 @@
                     <button type="submit" class="btn btn-primary w-100 py-3 mt-2">
                         INICIAR SESIÓN
                     </button>
+
+                    <div class="text-center mt-3">
+                        <a href="views/auth/recuperar_password.php" class="text-white text-opacity-40" style="font-size:0.82rem;text-decoration:none;">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
                     
                     <div class="mt-4 text-center">
                         <small class="text-white text-opacity-25">
