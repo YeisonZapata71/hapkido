@@ -192,8 +192,8 @@ verificarRol('admin');
           <p class="text-muted mb-0">Administra y visualiza todos los deportistas registrados</p>
         </div>
         <div>
-          <a href="../../dashboard.php" class="btn btn-outline-secondary me-2">
-            <i class="bi bi-arrow-left"></i> Volver
+          <a href="../../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill me-2">
+            <i class="bi bi-arrow-left me-2"></i>Volver
           </a>
           <a href="../../index.php" class="btn btn-success">
             <i class="bi bi-person-plus-fill"></i> Nuevo afiliado

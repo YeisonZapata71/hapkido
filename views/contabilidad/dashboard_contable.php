@@ -387,8 +387,8 @@ require_once __DIR__ . '/../../helpers/auth.php';
             <p>Visión general de finanzas y presupuestos</p>
         </div>
         <div class="d-flex gap-2">
-            <a href="../dashboard.php" class="btn-modern-secondary">
-                <i class="bi bi-arrow-left"></i> Volver
+            <a href="../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i>Volver
             </a>
             <a href="examenes_controller.php?view=lista" class="btn-modern" style="border-color: var(--border-neon-yellow); color: var(--accent-yellow); background: rgba(251, 191, 36, 0.1);">
                 <i class="bi bi-mortarboard-fill"></i> Gestionar Exámenes

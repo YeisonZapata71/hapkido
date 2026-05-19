@@ -74,8 +74,8 @@ include '../../partials/header.php';
         <?php endforeach; ?>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar Asignaciones</button>
-    <a href="index.php" class="btn btn-secondary">Cancelar</a>
+    <a href="index.php" class="btn btn-outline-secondary px-4 rounded-pill">Cancelar</a>
+    <button type="submit" class="btn btn-primary px-4 rounded-pill fw-bold shadow-sm">Guardar Asignaciones</button>
   </form>
 </div>
 

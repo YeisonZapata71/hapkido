@@ -77,7 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-light">
 <div class="container mt-4">
-    <a href="index.php" class="btn btn-secondary mb-3"><i class="bi bi-arrow-left"></i> Volver</a>
+    <a href="index.php" class="btn btn-sm btn-outline-secondary rounded-pill mb-3">
+      <i class="bi bi-arrow-left me-2"></i>Volver
+    </a>
     <div class="card shadow rounded">
         <div class="card-header bg-primary text-white">
             <h5 class="mb-0"><i class="bi bi-person-fill"></i> Editar Instructor</h5>
@@ -127,8 +129,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
                 <div class="mt-4">
-                    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Guardar cambios</button>
-                    <a href="index.php" class="btn btn-outline-secondary">Cancelar</a>
+                    <a href="index.php" class="btn btn-outline-secondary px-4 rounded-pill">Cancelar</a>
+                    <button type="submit" class="btn btn-primary px-4 rounded-pill fw-bold shadow-sm">
+                        <i class="bi bi-save me-2"></i>Guardar cambios
+                    </button>
                 </div>
             </form>
         </div>

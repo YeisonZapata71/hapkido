@@ -27,7 +27,11 @@ $afiliado = $resultado->fetch_assoc();
 </head>
 <body class="bg-light">
   <div class="container py-4">
-    <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+    <div class="mx-auto" style="max-width: 600px;">
+      <a href="index.php" class="btn btn-sm btn-outline-secondary rounded-pill mb-3">
+        <i class="bi bi-arrow-left me-2"></i>Volver al listado
+      </a>
+      <div class="card shadow p-4">
       <div class="text-center mb-3">
         <?php
 $rutaFoto = "../../assets/uploads/fotos/" . $afiliado['foto_nombre'];
@@ -57,7 +61,7 @@ if (!empty($afiliado['foto_nombre']) && file_exists($rutaFoto)) {
         <tr><th>Fecha inscripción</th><td><?= htmlspecialchars($afiliado['fecha_inscripcion']) ?></td></tr>
         <tr><th>Horario</th><td><?= htmlspecialchars($afiliado['horario']) ?></td></tr>
       </table>
-      <a href="index.php" class="btn btn-outline-secondary mt-3">Volver al listado</a>
+      </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

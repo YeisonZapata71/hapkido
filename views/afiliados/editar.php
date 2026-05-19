@@ -53,6 +53,9 @@ if (!empty($afiliado['horario'])) {
 <body class="bg-light">
   <div class="container py-4">
     <div class="mx-auto" style="max-width: 900px;">
+      <a href="index.php" class="btn btn-sm btn-outline-secondary rounded-pill mb-3">
+        <i class="bi bi-arrow-left me-2"></i>Volver al listado
+      </a>
       <div class="card shadow-card p-4 bg-white">
         <div class="mb-4 text-center">
           <h2 class="fw-bold mb-1">Edición de Afiliado</h2>
@@ -236,8 +239,12 @@ if (!empty($afiliado['horario'])) {
             <input type="file" name="foto" class="form-control" accept="image/*">
             </div>
           </div>
-          <button class="btn btn-primary mt-3"><i class="bi bi-save"></i> Actualizar afiliado</button>
-          <a href="index.php" class="btn btn-link mt-3">Volver al listado</a>
+          <div class="mt-4">
+            <a href="index.php" class="btn btn-outline-secondary px-4 rounded-pill">Cancelar</a>
+            <button type="submit" class="btn btn-primary px-4 rounded-pill fw-bold shadow-sm">
+              <i class="bi bi-save me-2"></i>Actualizar afiliado
+            </button>
+          </div>
         </form>
       </div>
     </div>

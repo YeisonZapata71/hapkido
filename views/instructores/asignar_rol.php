@@ -148,7 +148,7 @@ $conn->close();
       <h2>Asignar Rol de Instructor</h2>
       <p>Busca un afiliado y conviértelo en instructor</p>
     </div>
-    <a href="index.php" class="btn btn-outline-secondary rounded-pill">
+    <a href="index.php" class="btn btn-sm btn-outline-secondary rounded-pill">
       <i class="bi bi-arrow-left me-2"></i>Volver
     </a>
   </div>

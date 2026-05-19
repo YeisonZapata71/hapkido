@@ -83,7 +83,7 @@ if ($error) unset($_SESSION['reset_error']);
                         El enlace expirará en <strong style="color:rgba(255,255,255,0.7)">1 hora</strong>.<br>
                         Si no lo ves, revisa tu carpeta de spam.
                     </p>
-                    <a href="../../login.php" class="btn btn-primary w-100 py-3 mt-4">
+                    <a href="../../login.php" class="btn btn-primary w-100 py-3 mt-4 rounded-pill fw-bold shadow-sm">
                         Volver al Login
                     </a>
                 </div>
@@ -116,7 +116,7 @@ if ($error) unset($_SESSION['reset_error']);
                             autofocus
                         >
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 py-3" id="btnRecuperar">
+                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm" id="btnRecuperar">
                         ENVIAR ENLACE DE RECUPERACIÓN
                     </button>
                     <div class="mt-4 text-center">

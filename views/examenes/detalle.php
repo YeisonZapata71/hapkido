@@ -91,8 +91,8 @@
 
 <div class="container main-container">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <a href="examenes_controller.php?view=lista" class="btn btn-outline-secondary rounded-pill px-4">
-            <i class="bi bi-arrow-left me-1"></i> Volver al Listado
+        <a href="examenes_controller.php?view=lista" class="btn btn-sm btn-outline-secondary rounded-pill px-4">
+            <i class="bi bi-arrow-left me-2"></i>Volver al Listado
         </a>
         <h4 class="m-0 fw-bold">Detalles del Examen</h4>
     </div>

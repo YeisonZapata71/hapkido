@@ -205,8 +205,8 @@ $json_trend_data = json_encode(array_column($chart_trend_data, 'asistencia'));
       <p class="text-muted small">Reporte de rendimiento y cumplimiento</p>
     </div>
     <div class="d-flex gap-2">
-      <a href="index.php" class="btn btn-primary rounded-pill px-4"><i class="bi bi-plus-lg me-2"></i>Nueva Asistencia</a>
-      <a href="../../dashboard.php" class="btn btn-outline-secondary rounded-pill">Volver</a>
+      <a href="index.php" class="btn btn-sm btn-primary rounded-pill px-4 shadow-sm"><i class="bi bi-plus-lg me-2"></i>Nueva Asistencia</a>
+      <a href="../../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver</a>
     </div>
   </div>
 
@@ -242,7 +242,7 @@ $json_trend_data = json_encode(array_column($chart_trend_data, 'asistencia'));
       </div>
       <?php endif; ?>
       <div class="col-md-2">
-        <button type="submit" class="btn btn-dark w-100"><i class="bi bi-funnel me-1"></i> Filtrar</button>
+        <button type="submit" class="btn btn-dark w-100 rounded-pill"><i class="bi bi-funnel me-1"></i> Filtrar</button>
       </div>
     </form>
   </div>
@@ -420,7 +420,7 @@ $json_trend_data = json_encode(array_column($chart_trend_data, 'asistencia'));
   <div class="card border-0 shadow-sm">
     <div class="card-header bg-white border-0 py-3 d-flex justify-content-between">
       <h5 class="fw-bold mb-0">Detalle de Registros</h5>
-      <button class="btn btn-outline-success btn-sm" onclick="exportTableToCSV('asistencia.csv')"><i class="bi bi-download"></i> Exportar CSV</button>
+      <button class="btn btn-outline-success btn-sm rounded-pill px-3" onclick="exportTableToCSV('asistencia.csv')"><i class="bi bi-download"></i> Exportar CSV</button>
     </div>
     <div class="table-responsive">
       <table class="table table-hover align-middle mb-0">

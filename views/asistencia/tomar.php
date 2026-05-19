@@ -159,9 +159,9 @@
   
   <!-- Header -->
   <div class="page-header d-flex justify-content-between align-items-center">
-    <a href="../dashboard.php" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="bi bi-arrow-left"></i> Volver</a>
+    <a href="../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4"><i class="bi bi-arrow-left me-2"></i>Volver</a>
     <h4 class="mb-0">Control de Asistencia</h4>
-    <a href="consultar.php" class="btn btn-outline-info btn-sm rounded-pill" title="Ver Estadísticas"><i class="bi bi-graph-up"></i></a>
+    <a href="consultar.php" class="btn btn-sm btn-outline-info rounded-pill px-3" title="Ver Estadísticas"><i class="bi bi-graph-up"></i></a>
   </div>
 
   <!-- Messages -->
@@ -299,7 +299,7 @@
 
       <!-- Floating Save Button -->
       <div class="fab-container animate-slide-up">
-        <button type="submit" class="btn btn-primary btn-save text-white">
+        <button type="submit" class="btn btn-primary btn-save text-white fw-bold shadow-sm rounded-pill">
           <i class="bi bi-save me-2"></i> GUARDAR ASISTENCIA
         </button>
       </div>

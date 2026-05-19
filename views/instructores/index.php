@@ -172,7 +172,7 @@ if (!isset($instructores)) {
       <p>Administra el equipo docente y sus accesos</p>
     </div>
     <div class="d-flex gap-2">
-      <a href="../../dashboard.php" class="btn btn-outline-secondary rounded-pill">
+      <a href="../../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill">
         <i class="bi bi-arrow-left me-2"></i>Volver
       </a>
       <a href="asignar_rol.php" class="btn btn-primary rounded-pill">
@@ -358,8 +358,8 @@ if (!isset($instructores)) {
             </div>
           </div>
           <div class="modal-footer bg-light">
-            <button type="button" class="btn btn-link text-decoration-none text-muted" data-bs-dismiss="modal">Cancelar</button>
-            <button type="submit" class="btn btn-primary px-4 rounded-pill">Confirmar Acceso</button>
+            <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary px-4 rounded-pill fw-bold shadow-sm">Confirmar Acceso</button>
           </div>
         </form>
       </div>

@@ -320,7 +320,7 @@
             <h2><i class="bi bi-cash-coin"></i> Gestión de Ingresos</h2>
             <p>Registra pagos y gestiona estados de cuenta</p>
         </div>
-        <a href="contabilidad_controller.php" class="btn-outline-secondary">
+        <a href="contabilidad_controller.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4">
             <i class="bi bi-arrow-left me-2"></i>Volver al Dashboard
         </a>
     </div>
@@ -409,7 +409,7 @@
                         <textarea name="observaciones" class="form-control" rows="2"></textarea>
                     </div>
 
-                    <button type="submit" class="btn btn-success w-100 py-2 fw-bold shadow-sm">
+                    <button type="submit" class="btn btn-success w-100 py-2 rounded-pill fw-bold shadow-sm">
                         <i class="bi bi-save me-2"></i> Registrar Pago
                     </button>
                 </form>

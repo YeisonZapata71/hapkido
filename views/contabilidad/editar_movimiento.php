@@ -122,7 +122,7 @@ if (!defined('BASE_PATH')) {
                     <h4 class="mb-0 fw-bold" style="color: var(--accent-blue)">
                         <i class="bi bi-pencil-square me-2"></i>Editar Movimiento #<?php echo $movimiento['id']; ?>
                     </h4>
-                    <a href="contabilidad_controller.php?view=<?php echo ($movimiento['tipo'] == 'ingreso') ? 'ingresos' : 'egresos'; ?>" class="btn btn-outline-secondary btn-sm">
+                    <a href="contabilidad_controller.php?view=<?php echo ($movimiento['tipo'] == 'ingreso') ? 'ingresos' : 'egresos'; ?>" class="btn btn-outline-secondary btn-sm rounded-pill">
                         <i class="bi bi-x-lg"></i> Cancelar
                     </a>
                 </div>
@@ -201,7 +201,7 @@ if (!defined('BASE_PATH')) {
                     </div>
                     
                     <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-primary py-2 fw-bold">
+                        <button type="submit" class="btn btn-primary py-2 fw-bold rounded-pill shadow-sm">
                             <i class="bi bi-save me-2"></i> Guardar Cambios
                         </button>
                     </div>

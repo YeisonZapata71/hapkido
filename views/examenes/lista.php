@@ -270,8 +270,8 @@
             <p>Programación, calificación y seguimiento de ascensos de grado</p>
         </div>
         <div class="d-flex gap-2">
-            <a href="contabilidad_controller.php" class="btn btn-outline-secondary rounded-pill px-4">
-                <i class="bi bi-arrow-left me-1"></i> Dashboard
+            <a href="../../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i>Volver al Dashboard
             </a>
             <button class="btn-modern" data-bs-toggle="modal" data-bs-target="#modalProgramar">
                 <i class="bi bi-plus-lg"></i> Programar Examen
@@ -532,8 +532,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn-modern">Confirmar Programación</button>
+                <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn-modern px-4 rounded-pill fw-bold shadow-sm">Confirmar Programación</button>
             </div>
         </form>
     </div>
@@ -571,8 +571,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary px-4" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary px-4 fw-bold">Guardar Resultado</button>
+                <button type="button" class="btn btn-outline-secondary px-4 rounded-pill" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary px-4 rounded-pill fw-bold shadow-sm">Guardar Resultado</button>
             </div>
         </form>
     </div>

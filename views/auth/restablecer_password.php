@@ -102,7 +102,7 @@ if ($error_session)                  $error_msg = $error_session;
                     <p class="text-white text-opacity-50 mb-4">
                         <?= $error_msg ?: 'Este enlace de recuperación no es válido o ha expirado.' ?>
                     </p>
-                    <a href="recuperar_password.php" class="btn btn-primary w-100 py-3">
+                    <a href="recuperar_password.php" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm">
                         Solicitar nuevo enlace
                     </a>
                 </div>
@@ -154,7 +154,7 @@ if ($error_session)                  $error_msg = $error_session;
                         <div class="match-indicator" id="matchIndicator"></div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100 py-3" id="btnReset">
+                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm" id="btnReset">
                         GUARDAR NUEVA CONTRASEÑA
                     </button>
 

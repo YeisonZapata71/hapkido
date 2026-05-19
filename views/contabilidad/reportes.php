@@ -146,8 +146,8 @@ $horario_filtro = $_GET['horario'] ?? '';
             <h2><i class="bi bi-bar-chart-line-fill"></i> Reportes y Estadísticas</h2>
             <p>Análisis detallado de movimientos y población deportiva</p>
         </div>
-        <a href="contabilidad_controller.php" class="btn btn-outline-secondary rounded-pill px-4">
-            <i class="bi bi-arrow-left me-1"></i> Dashboard
+        <a href="contabilidad_controller.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4">
+            <i class="bi bi-arrow-left me-2"></i>Volver al Dashboard
         </a>
     </div>
 

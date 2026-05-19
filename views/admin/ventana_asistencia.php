@@ -93,7 +93,7 @@ $conn->close();
 <body>
 
 <div class="main-container">
-    <a href="../../dashboard.php" class="btn btn-outline-secondary rounded-pill mb-4">
+    <a href="../../dashboard.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4 mb-4">
         <i class="bi bi-arrow-left me-2"></i>Volver al Dashboard
     </a>
 
@@ -155,7 +155,7 @@ $conn->close();
                 <div class="form-text">Este mensaje se mostrará a los instructores.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold" id="btnGuardar">
+            <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm" id="btnGuardar">
                 GUARDAR CAMBIOS
             </button>
         </form>

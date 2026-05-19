@@ -253,7 +253,7 @@
             <h2><i class="bi bi-sliders"></i> Configuración Avanzada</h2>
             <p>Gestiona conceptos, metas y reglas de distribución</p>
         </div>
-        <a href="contabilidad_controller.php" class="btn-outline-secondary">
+        <a href="contabilidad_controller.php" class="btn btn-sm btn-outline-secondary rounded-pill px-4">
             <i class="bi bi-arrow-left me-2"></i>Volver al Dashboard
         </a>
     </div>
@@ -289,7 +289,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-end mt-3">
-                            <button type="submit" class="btn btn-primary">Guardar Metas</button>
+                            <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Guardar Metas</button>
                         </div>
                     </div>
                 </form>
@@ -448,7 +448,7 @@
                     
                     <div class="text-end mt-3">
                         <span class="me-3">Total: <strong id="total_display">0.00%</strong></span>
-                        <button type="submit" class="btn btn-success">Guardar Distribución</button>
+                        <button type="submit" class="btn btn-success rounded-pill px-4 fw-bold shadow-sm">Guardar Distribución</button>
                     </div>
                 </form>
                 <?php endif; ?>
@@ -487,7 +487,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Guardar</button>
       </div>
     </form>
   </div>
@@ -532,7 +532,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Guardar</button>
       </div>
     </form>
   </div>
@@ -566,7 +566,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm">Guardar</button>
       </div>
     </form>
   </div>
