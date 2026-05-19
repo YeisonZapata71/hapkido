@@ -1,0 +1,44 @@
+# ─── Credenciales y configuración sensible ───
+config/database.php
+config/*.env
+*.env
+.env.*
+
+# ─── Archivos de error/log ───
+error_log
+*.log
+helpers/error_log
+controllers/error_log
+views/*/error_log
+
+# ─── Archivos subidos por usuarios ───
+uploads/
+assets/uploads/
+
+# ─── Archivos de instalación (solo para setup inicial) ───
+install.php
+install_safe.php
+fix_install.php
+installed.lock
+
+# ─── PHP debug / utils temporales ───
+debug_firma.php
+test_conexion.php
+hash.php
+migrar_terceros.php
+update_*.php
+
+# ─── Dependencias (si se usan) ───
+vendor/
+node_modules/
+
+# ─── Sistema operativo ───
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── IDE ───
+.vscode/
+.idea/
+*.swp
+*.swo
